@@ -1,6 +1,9 @@
-package dev.java10x.CadastroDeNinjas.model;
+package dev.java10x.CadastroDeNinjas.ninjas;
 
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -8,9 +11,18 @@ public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String nome;
+
     private String email;
+
     private Integer idade;
+
+    //@ManyToMany se usa quando quer que tenha um único elemento -- o ninja só vai ter uma missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // essa anotation junta duas colunas
+    private MissoesModel missoes;
+
 
     public NinjaModel() {
     }
