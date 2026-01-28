@@ -28,7 +28,7 @@ public class NinjaController {
     }
 
     //Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarId")  //Anotação usada quando irá atualizar um recurso
+    @PutMapping("/alterarPorId")  //Anotação usada quando irá atualizar um recurso
     public String alterarPorID(){
         return "alterado por ID";
     }
