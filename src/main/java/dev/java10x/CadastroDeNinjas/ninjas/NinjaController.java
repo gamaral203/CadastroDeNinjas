@@ -2,9 +2,18 @@ package dev.java10x.CadastroDeNinjas.ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/ninjas")
 public class NinjaController {
+
+    private NinjaService ninjaService; // injetando denpedencia do service
+
+    public NinjaController(NinjaService ninjaService){
+        this.ninjaService = ninjaService;
+    }
+
     @GetMapping("/boasvindas")
     public String boasvindas() {
         return "Boas vindas";
@@ -18,13 +27,13 @@ public class NinjaController {
 
     //Mostrar todos os ninjas (READ)
     @GetMapping("/listar")    //anotação usadda para mostrar algo
-    public String listarNinjas() {
-        return "listar ninjas";
+    public List<NinjaModel> listarNinjas() {
+        return ninjaService.listarNijas();
     }
     //Mostrar ninja por ID (READ)
-    @GetMapping("/listarID")
-    public String mostrarTodosNinjasPorId() {
-        return "Mostrar Ninja por ID";
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjasPorId(@PathVariable Long id) {  // essa anotation faz o retorno do usuário fazer parte da URL
+        return ninjaService.ListarNinjasPorId(id);
     }
 
     //Alterar dados dos ninjas (UPDATE)

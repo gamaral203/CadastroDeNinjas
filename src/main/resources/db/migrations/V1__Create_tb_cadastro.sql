@@ -7,3 +7,8 @@ CREATE TABLE tb_cadastro (
                              idade INTEGER,
                              missoes_id BIGINT
 );
+CREATE TABLE tb_missoes (
+                            id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                            dificuldade VARCHAR(100) NOT NULL,
+                            nome_da_missao VARCHAR(255) NOT NULL
+);
