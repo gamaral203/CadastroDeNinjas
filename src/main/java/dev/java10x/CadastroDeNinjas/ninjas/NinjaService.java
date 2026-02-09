@@ -15,15 +15,22 @@ private NinjaRepository ninjaRepository;    // o construtor inicializa os objeto
 public NinjaService(NinjaRepository ninjaRepository){
     this.ninjaRepository=ninjaRepository;
 }
+
+
 //Listar todos os Ninjas
 public List<NinjaModel> listarNijas(){
     return ninjaRepository.findAll();
 }
-//Listar todos os Ninjas por ID
 
-public NinjaModel ListarNinjasPorId(Long id) {
+//Listar todos os Ninjas por ID
+public NinjaModel listarNinjasPorId(Long id) {
     Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id); //retorna o ninja por ID, se não tiver, retorna null
     return ninjaPorId.orElse(null);
 }
+// Criar Ninjas
+public NinjaModel criarNinja(NinjaModel ninja) {
+    return ninjaRepository.save(ninja);
+}
+
 }
 
