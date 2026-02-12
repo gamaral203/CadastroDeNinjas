@@ -16,7 +16,7 @@ public class NinjaController {
 
     @GetMapping("/boasvindas")
     public String boasvindas() {
-        return "Boas vindas";
+        return "Boas vindas!";
     }
 
     //Criar Ninja (CREATE)
@@ -33,7 +33,7 @@ public class NinjaController {
     //Mostrar ninja por ID (READ)
     @GetMapping("/listar/{id}")
     public NinjaModel listarNinjasPorId(@PathVariable Long id) {  // essa anotation faz o retorno do usuário fazer parte da URL
-        return ninjaService.ListarNinjasPorId(id);
+        return ninjaService.listarNinjasPorId(id);
     }
 
     //Alterar dados dos ninjas (UPDATE)
