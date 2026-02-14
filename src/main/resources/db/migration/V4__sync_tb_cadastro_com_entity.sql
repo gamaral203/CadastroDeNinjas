@@ -1,0 +1,8 @@
+ALTER TABLE tb_cadastro
+    ADD COLUMN IF NOT EXISTS idade INT;
+
+ALTER TABLE tb_cadastro
+    ADD COLUMN IF NOT EXISTS img_url VARCHAR(255);
+
+ALTER TABLE tb_cadastro
+    ADD COLUMN IF NOT EXISTS rank VARCHAR(50);
